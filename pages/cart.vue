@@ -1,4 +1,5 @@
 <template>
+  <!-- <NuxtLink to="/">Products</NuxtLink> -->
     <div class="cart">
       <h1>Shopping Cart</h1>
       <div v-if="cartItemCount === 0">Your cart is empty</div>
@@ -27,6 +28,7 @@
   
   <script>
   export default {
+    layout: 'default',
     computed: {
       cart() {
         return this.$store.state.cart.cart;

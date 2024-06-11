@@ -1,4 +1,10 @@
 <template>
+  <!-- <div class="nav">
+    <NuxtLink to="/">Home</NuxtLink>
+    <NuxtLink to="/cart">Cart</NuxtLink>
+    <NuxtLink to="/login">Login</NuxtLink>
+    <NuxtLink to="/registration">Register</NuxtLink>
+   </div> -->
   <div class="login-container">
     <h2>Login</h2>
     <form @submit.prevent="login" class="login-form">
@@ -11,12 +17,14 @@
         <input type="password" v-model="password" id="password" required>
       </div>
       <button type="submit" class="login-button">Login</button>
+      <NuxtLink to="/registration">Click here to register</NuxtLink>
     </form>
   </div>
 </template>
 
 <script>
 export default {
+  layout: 'default',
   data() {
     return {
       email: '',
@@ -46,6 +54,7 @@ export default {
         localStorage.setItem('accessToken', access_token);
 
         console.log('Login successful. Access token saved:');
+        this.$router.push('/');
 
         // Handle success response (e.g., redirect to dashboard)
       } catch (error) {

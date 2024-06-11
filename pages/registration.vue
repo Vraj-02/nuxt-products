@@ -1,4 +1,5 @@
 <template>
+  
   <div class="register-container">
     <h2>Register</h2>
     <form @submit.prevent="register" class="register-form">
@@ -26,6 +27,7 @@
     </form>
     <div v-if="error" class="error">{{ error }}</div>
     <div v-if="success" class="success">Registration successful!</div>
+    <NuxtLink to="/login">click here to login</NuxtLink>
   </div>
 </template>
 
@@ -73,6 +75,7 @@ export default {
         console.log('Registration successful:', response.data.data.addUser);
         this.success = true;
         this.error = null;
+        this.$router.push('/login')
       } catch (error) {
         console.error('Registration failed:', error);
         this.error = error.message || 'An error occurred while registering';

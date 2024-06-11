@@ -1,4 +1,10 @@
 <template>
+  <!-- <div class="nav">
+    <NuxtLink to="/">Home</NuxtLink>
+    <NuxtLink to="/cart">Cart</NuxtLink>
+    <NuxtLink to="/login">Login</NuxtLink>
+    <NuxtLink to="/registration">Register</NuxtLink>
+   </div> -->
   <div>
     <h2>User Profile</h2>
     <div v-if="loading">Loading...</div>
@@ -51,6 +57,7 @@ export default {
         }, { headers });
 
         this.user = response.data.data.myProfile;
+        console.log(this.user);
         this.loading = false;
       } catch (error) {
         console.error('Error fetching profile:', error);
